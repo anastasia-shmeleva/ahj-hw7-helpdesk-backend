@@ -1,25 +1,28 @@
 {
   "name": "ahj",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "prestart": "npm install",
-    "start": "forever server.js",
-    "watch": "forever -w server.js"
+    "start": "nodemon --experimental-json-modules server.js",
+    "watch": "nodemon -w server.js"
   },
-  "author": "coursar",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "forever": "^3.0.4",
     "koa": "^2.13.1",
     "koa-body": "^4.2.0",
     "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
     "uuid": "^8.3.2"
   },
   "engines": {
     "node": "10.x"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anastasia-shmeleva/ahj-hw7-helpdesk-backend.git"
