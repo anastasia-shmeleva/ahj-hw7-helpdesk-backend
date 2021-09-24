@@ -2,6 +2,7 @@ import * as tickets from './tickets.json';
 import Koa from 'koa';
 import koaBody from 'koa-body';
 import cors from 'koa2-cors';
+import http from 'http';
 const app = new Koa();
 
 app.use(koaBody({
@@ -45,5 +46,14 @@ app.use(async (ctx) => {
       ctx.response.body = `Unknown method '${method}' in request parameters`;
   }
 });
-  
-app.listen(process.env.PORT || 7070);
+
+// const server = http.createServer(app.callback()).listen(7070);
+
+// app.listen(process.env.PORT || 7070);
+
+const server = http.createServer((req, res) => {
+  console.log(req);
+  res.end('server response');
+});
+
+server.listen(7070);
