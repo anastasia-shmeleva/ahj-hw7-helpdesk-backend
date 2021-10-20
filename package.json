@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "npm install",
     "start": "nodemon --experimental-json-modules server.js",
-    "watch": "nodemon -w server.js"
+    "watch": "nodemon --experimental-json-modules -w server.js"
   },
   "author": "",
   "license": "ISC",

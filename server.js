@@ -18,27 +18,27 @@ app.use(
       origin: '*',
       credentials: true,
       'Access-Control-Allow-Origin': true,
-      allowMethods: ['GET', 'POST', 'PUT', 'DELETE'],
+      allowMethods: ['GET', 'POST', 'PATCH', 'DELETE'],
     })
 );
 
 app.use(async (ctx) => {
   let method;
-  if (ctx.request.method === 'GET' || ctx.request.method === 'DELETE') ({ method } = ctx.request.query);
+  if (ctx.request.method === 'GET' || ctx.request.method === 'DELETE'|| ctx.request.method === 'PATCH') ({ method } = ctx.request.query);
   else if (ctx.request.method === 'POST') ({ method } = ctx.request.body);
 
   switch (method) {
     case 'allTickets': ctx.response.body = ticketController.getTickets();
       break;
-    case 'ticketById': ctx.response = ticketController.getTicketFull(ctx.request.query);
+    case 'ticketById': ctx.response.body = ticketController.ticketById(ctx.request.query.id);
       break;
-    case 'createTicket': ctx.response.body = ticketController.createTicket(ctx.request.body);
+    case 'createTicket': ctx.response.body = `Request Body: ${JSON.stringify(ctx.request.body)}`;
       break;
-    case 'changeStatus': ctx.response = ticketController.changeStatus(ctx.request.body);
+    case 'changeStatus': ctx.response.body = ticketController.changeStatus(ctx.request.query.id);
       break;
-    case 'updateTicket': ctx.response = ticketController.updateTicket(ctx.request.body);
+    case 'updateTicket': ctx.response.body = ticketController.updateTicket(ctx.request.query);
       break;
-    case 'deleteTicket': ctx.response = ticketController.deleteTicket(ctx.request.body);
+    case 'deleteTicket': ctx.response.body = ticketController.deleteTicket(ctx.request.query.id);
       break;
     default:
       ctx.response.status = 404;
