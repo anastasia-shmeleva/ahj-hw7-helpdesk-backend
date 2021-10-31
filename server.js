@@ -129,10 +129,12 @@ app.use(async ctx => {
   }
 });
 
-const port = process.env.PORT || 7070;
+// const port = process.env.PORT || 7070;
 
-const server = createServer(app.callback());
+// const server = createServer(app.callback());
 
-server.listen(port, () => {
-  console.log(`Koa server has been started on port ${port}`);
-});
+// server.listen(port, () => {
+//   console.log(`Koa server has been started on port ${port}`);
+// });
+
+app.listen(process.env.PORT || 7070);
