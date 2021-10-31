@@ -1,5 +1,4 @@
-{
-    "tickets" : [
+[
         {
             "id": "1",
             "name": "Поменять краску в принтере, ком. 404",
@@ -23,10 +22,9 @@
         },
         {
             "id": "4",
-            "name": "BLA BLA",
-            "description": "one more ticket",
+            "name": "test ticket",
+            "description": "test ticket description",
             "status": true,
             "created": "13.8.2021 16:39"
         }
   ]
-}
