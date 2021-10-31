@@ -1,7 +1,7 @@
 import { createServer } from 'http';
 import Koa from 'koa';
 import koaBody from 'koa-body';
-import cors from 'koa2-cors';
+import cors from '@koa/cors';
 import { v4 } from 'uuid';
 import * as tickets from './tickets.json';
 
@@ -15,14 +15,7 @@ app.use(koaBody({
 }));
 
 //Cors
-app.use(
-    cors({
-      origin: '*',
-      credentials: true,
-      'Access-Control-Allow-Origin': true,
-      allowMethods: ['GET', 'POST', 'PATCH', 'DELETE'],
-    })
-);
+app.use(cors());
 
 app.use(async (ctx, next) => {
   const origin = ctx.request.get('Origin');
