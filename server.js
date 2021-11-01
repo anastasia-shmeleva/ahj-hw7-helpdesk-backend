@@ -1,4 +1,3 @@
-// import { createServer } from 'http';
 import Koa from 'koa';
 import koaBody from 'koa-body';
 import cors from '@koa/cors';
@@ -128,13 +127,5 @@ app.use(async ctx => {
     return;
   }
 });
-
-// const port = process.env.PORT || 7070;
-
-// const server = createServer(app.callback());
-
-// server.listen(port, () => {
-//   console.log(`Koa server has been started on port ${port}`);
-// });
 
 app.listen(process.env.PORT || 7070)
