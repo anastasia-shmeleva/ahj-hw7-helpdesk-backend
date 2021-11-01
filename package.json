@@ -16,13 +16,11 @@
     "koa-body": "^4.2.0",
     "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
+    "nodemon": "^2.0.14",
     "uuid": "^8.3.2"
   },
   "engines": {
-    "node": "14.17.5"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.12"
+    "node": "10.x"
   },
   "repository": {
     "type": "git",
