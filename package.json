@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "prestart": "npm install",
-    "start": "nodemon --experimental-json-modules server.js",
+    "start": "nodemon server.js",
     "watch": "nodemon --experimental-json-modules -w server.js"
   },
   "author": "",
