@@ -3,7 +3,7 @@ import Koa from 'koa';
 import koaBody from 'koa-body';
 import cors from '@koa/cors';
 import { v4 } from 'uuid';
-import * as tickets from './tickets.json';
+import * as tickets from './tickets.js';
 
 const app = new Koa();
 
@@ -63,6 +63,7 @@ app.use(async ctx => {
     const { method } = ctx.request.query;
     switch (method) {
       case 'allTickets':
+        console.log(tickets);
         ctx.response.body = tickets.default.map((item) => {
           return {
             id: item.id,
@@ -129,12 +130,10 @@ app.use(async ctx => {
   }
 });
 
-// const port = process.env.PORT || 7070;
+const port = process.env.PORT || 7070;
 
-// const server = createServer(app.callback());
+const server = createServer(app.callback());
 
-// server.listen(port, () => {
-//   console.log(`Koa server has been started on port ${port}`);
-// });
-
-app.listen(process.env.PORT || 7070);
+server.listen(port, () => {
+  console.log(`Koa server has been started on port ${port}`);
+});
